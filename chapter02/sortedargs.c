@@ -8,7 +8,7 @@
   Build with     : gcc -o sortedargs sortedargs.c
 
 ******************************************************************************
-* Copyright (C) 2025 - Stewart Weiss                                         *
+* Copyright (C) 2026 - Sam Tredgett                                          *
 *                                                                            *
 * This code is free software; you can use, modify, and redistribute it       *
 * under the terms of the GNU General Public License as published by the      *

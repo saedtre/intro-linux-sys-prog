@@ -3,9 +3,9 @@ include ../Makefile.inc
 CC       = /usr/bin/gcc
 SRCS    = basename_demo.c environ_demo.c get_libc_version_demo.c getenv_demo.c \
           gethostname_demo.c gettid_demo.c perror_demo.c printargs1.c  \
-          printargs2.c printargs3.c progname_demo.c risky_getenv.c str2int.c \
+          printargs2.c printargs3.c printargs4.c progname_demo.c risky_getenv.c str2int.c \
           strerror_demo.c  strtol_demo.c usagecheck_demo.c getopt_demo.c \
-          test_get_long.c test_get_int.c
+          test_get_long.c test_get_int.c reverseargs.c sortedargs.c
 OBJS    := $(patsubst %.c,%.o,$(SRCS))
 EXECS   := $(patsubst %.c,%,$(SRCS))
 CFLAGS   += -D_XOPEN_SOURCE=700  -D_DEFAULT_SOURCE  -Wall -g
@@ -36,6 +36,9 @@ perror_demo.o: perror_demo.c  $(SPL_LIB) $(SPL_HDRS)
 printargs1.o: printargs1.c  $(SPL_LIB) $(SPL_HDRS)
 printargs2.o: printargs2.c  $(SPL_LIB) $(SPL_HDRS)
 printargs3.o: printargs3.c  $(SPL_LIB) $(SPL_HDRS)
+printargs4.o: printargs4.c  $(SPL_LIB) $(SPL_HDRS)
+reverseargs.o: reverseargs.c  $(SPL_LIB) $(SPL_HDRS)
+sortedargs.o: sortedargs.c $(SPL_LIB) $(SPL_HDRS)
 progname_demo.o: progname_demo.c  $(SPL_LIB) $(SPL_HDRS)
 risky_getenv.o: risky_getenv.c  $(SPL_LIB) $(SPL_HDRS)
 str2int.o: str2int.c  $(SPL_LIB) $(SPL_HDRS)
