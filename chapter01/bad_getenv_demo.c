@@ -24,8 +24,8 @@
 
 int main()
 {
-    char shell[200];
-    shell = getenv("SHELL");  /* This cannot compile because shell
+    // char shell[200];
+    char* shell = getenv("SHELL");  /* This cannot compile because shell
                                  is a const char* but getenv() allocates
                                  its own memory for the returned string
                                  and returns its address. */
