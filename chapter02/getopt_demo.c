@@ -44,7 +44,13 @@
 * PARTICULAR PURPOSE. See the file COPYING.gplv3 for details.                *
 *****************************************************************************/
 
-#include "common_hdrs.h"
+
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+
+#define TRUE 1
+#define FALSE 0
 
 int main( int argc, char *argv[])
 {
