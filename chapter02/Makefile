@@ -27,6 +27,7 @@ cleanall: clean
 basename_demo.o: basename_demo.c  $(SPL_LIB) $(SPL_HDRS)
 environ_demo.o: environ_demo.c  $(SPL_LIB) $(SPL_HDRS)
 get_libc_version_demo.o: get_libc_version_demo.c  $(SPL_LIB) $(SPL_HDRS)
+get_glibc_version.o: get_glibc_version.c $(SPL_LIB) $(SPL_HDRS)
 getenv_demo.o: getenv_demo.c  $(SPL_LIB) $(SPL_HDRS)
 gethostname_demo.o: gethostname_demo.c  $(SPL_LIB) $(SPL_HDRS)
 getopt_demo.c: $(SPL_LIB) $(SPL_HDRS)
