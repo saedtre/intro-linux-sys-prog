@@ -22,17 +22,10 @@
 #include <stdlib.h>
 
 // lencmp is a comparison function for two strings, for use with things like qsort
-int lencmp(const char* s1, const char* s2) {
-    size_t s1_len = strlen(s1);
-    size_t s2_len = strlen(s2);
-
-    if (s1_len == s2_len) {
-        return 0;
-    } else if (s1_len > s2_len) {
-        return 1;
-    } else {
-        return -1;
-    }
+static int lencmp(const char* s1, const char* s2) {
+    const size_t l1 = strlen(s1);
+    const size_t l2 = strlen(s2);
+    return (l1 > l2) - (l1 < l2);
 }
 
 // wrapper func for making lencmp work with void pointers
@@ -40,13 +33,17 @@ static int cmpstringp(const void *p1, const void *p2) {
     return lencmp(*(const char **) p1, *(const char **) p2);
 }
 
-int main( int argc, char *argv[])
+int main(const int argc, char *argv[])
 {
+    if (argc < 2) {
+        fprintf(stderr, "Usage: %s <list of words>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
     qsort(&argv[1], argc-1, sizeof(char *), cmpstringp);
 
-    for(size_t j = 1; j < argc; j++)
+    for(size_t j = 1; j < (size_t)argc; j++)
         puts(argv[j]);
 
-    exit(EXIT_SUCCESS);
-
+    return 0;
 }
+
