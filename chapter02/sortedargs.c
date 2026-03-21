@@ -18,32 +18,31 @@
 * PARTICULAR PURPOSE. See the file COPYING.gplv3 for details.                *
 *****************************************************************************/
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 
-// lencmp is a comparison function for two strings, for use with things like qsort
-static int lencmp(const char* s1, const char* s2) {
-    const size_t l1 = strlen(s1);
-    const size_t l2 = strlen(s2);
-    return (l1 > l2) - (l1 < l2);
+// lencmp is a comparison function for two strings, for use with things like
+// qsort
+static int lencmp(const char *s1, const char *s2) {
+  const size_t l1 = strlen(s1);
+  const size_t l2 = strlen(s2);
+  return (l1 > l2) - (l1 < l2);
 }
 
 // wrapper func for making lencmp work with void pointers
 static int cmpstringp(const void *p1, const void *p2) {
-    return lencmp(*(const char **) p1, *(const char **) p2);
+  return lencmp(*(const char **)p1, *(const char **)p2);
 }
 
-int main(const int argc, char *argv[])
-{
-    if (argc < 2) {
-        fprintf(stderr, "Usage: %s <list of words>\n", argv[0]);
-        exit(EXIT_FAILURE);
-    }
-    qsort(&argv[1], argc-1, sizeof(char *), cmpstringp);
+int main(const int argc, char *argv[]) {
+  if (argc < 2) {
+    fprintf(stderr, "Usage: %s <list of words>\n", argv[0]);
+    exit(EXIT_FAILURE);
+  }
+  qsort(&argv[1], argc - 1, sizeof(char *), cmpstringp);
 
-    for(size_t j = 1; j < (size_t)argc; j++)
-        puts(argv[j]);
+  for (size_t j = 1; j < (size_t)argc; j++)
+    puts(argv[j]);
 
-    return 0;
+  return 0;
 }
-
