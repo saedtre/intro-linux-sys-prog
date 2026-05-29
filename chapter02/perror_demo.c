@@ -23,8 +23,8 @@
 
 int main(int argc, char *argv[] )
 {
-    char  name[4];   /* declare string to hold returned value */
-    size_t len = 3;  /* purposely too small so error is revealed */
+    char  name[255];   /* declare string to hold returned value */
+    size_t len = 255;  /* purposely too small so error is revealed */
     int   returnvalue;
 
 
